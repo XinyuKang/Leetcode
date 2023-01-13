@@ -87,14 +87,30 @@ String type is immutable in Python
     s = re.sub(r'^[a-zA-Z0-9]', "", s)
     ```
 
-#### using the "replace" function to replace "counts" of a character to another character:
+#### Using the "replace" function to replace "counts" of a character to another character:
     ```
     some_str.replace("a", "b", counts)
     ```
-#### replace a character at a certain index:
+#### Replace a character at a certain index:
     ```
     s = s[:index] + newstring + s[index + 1:]
     ```
+#### Sort the letters in a string alphabetically
+```
+a = 'ZENOVW'
+b = sorted(a)
+# b = ['E', 'N', 'O', 'V', 'W', 'Z']
+# sorted returns a list, so you can make it a string again using join:
+c = ''.join(b)
+```
 
+### Check Whether a Number is Even or Odd:
+```
+if (num % 2) == 0:
+   print (“The number is even”)
+
+else:
+   print (“The provided number is odd”)
+```
 
 
