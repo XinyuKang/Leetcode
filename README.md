@@ -113,4 +113,13 @@ else:
    print (“The provided number is odd”)
 ```
 
+### Difference Between Break and Continue:
+The break statement can be used if you need to break out of a for or while loop and move onto the next section of code. The continue statement can be used if you need to skip the current iteration of a for or while loop and move onto the next iteration.
 
+### Sum of Digits of a Number in Python
+```
+sum = 0
+for digit in str(n):
+    sum += int(digit)      
+return sum
+```
