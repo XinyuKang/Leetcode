@@ -51,7 +51,7 @@ void slidingWindow(string s) {
 ### Backtracking:
 [Backtracing Algorithm Explanation](https://en.wikipedia.org/wiki/Backtracking)
 
-回溯算法和 DFS 算法的细微差别是：回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」
+
 大致思路：
 ```
 result = []
@@ -64,6 +64,7 @@ def backtrack(路径, 选择列表):
         做选择
         backtrack(路径, 选择列表)
         撤销选择
+# 回溯算法和 DFS 算法的细微差别是：回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」
 ```
 
 ### Others:
