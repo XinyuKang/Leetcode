@@ -42,10 +42,29 @@ void slidingWindow(string s) {
         }
     }
 }
+
+# 这两个 ... 处的操作分别是扩大和缩小窗口的更新操作，它们操作是完全对称的
+# left = right = 0，把索引左闭右开区间 [left, right) 称为一个「窗口」
+# 明显的滑动窗口算法: 给你一个 S 和一个 T，请问你 S 中是否存在一个子串，包含 T 中所有字符且不包含其他字符
 ```
 
 ### Backtracking:
 [Backtracing Algorithm Explanation](https://en.wikipedia.org/wiki/Backtracking)
+
+回溯算法和 DFS 算法的细微差别是：回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」
+大致思路：
+```
+result = []
+def backtrack(路径, 选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+    
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径, 选择列表)
+        撤销选择
+```
 
 ### Others:
 
@@ -136,6 +155,15 @@ b = sorted(a)
 # b = ['E', 'N', 'O', 'V', 'W', 'Z']
 # sorted returns a list, so you can make it a string again using join:
 c = ''.join(b)
+```
+
+#### Find Number of Unique Characters in String
+```
+# Method 1
+count = len(set(str))
+# Method 2
+from collections import Counter
+count = len(Counter(str))
 ```
 
 ### Check Whether a Number is Even or Odd:
