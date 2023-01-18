@@ -119,6 +119,9 @@ dict(sorted(people.items(), key=lambda item: item[1]))   # people.items() is a l
 # {2: 'Jack', 4: 'Jane', 1: 'Jill', 3: 'Jim'}
 ```
 
+### Set:
+Set data structure is referred as Unordered Collections of Unique Elements and that doesn't support operations like indexing or slicing etc.
+
 ### Counter: 
 Count several repeated objects at once. Returns a python dictionary with the counts of each letter. The .update() implementation provided by Counter adds existing counts together.
 
