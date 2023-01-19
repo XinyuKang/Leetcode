@@ -78,6 +78,42 @@ def backtrack(路径, 选择列表):
 if __name__ == "__main__":
 ```
 
+### Binary Int
+```
+# int(value, base): the base param here indicated what is the base of the given value, the int() itself returns the sum value of base 10
+# bin(36): return the binary version of 36
+
+a = "1101"
+b = "100"
+ 
+# Calculating binary value using function
+sum = bin(int(a, 2) + int(b, 2))   
+ 
+# Printing result
+print(sum[2:])  # this is because bin(num) will return "0bxxx" and [2:] is the real num
+```
+### List
+
+#### Append to list at a certain index:
+```
+# list.insert() – inserts a single element anywhere in the list. insert(index, element)
+odd_n.insert(3, 21)
+
+# list.append() – always adds items (strings, numbers, lists) at the end of the list.
+crops.append('cane')
+
+# list.extend() – adds iterable items (lists, tuples, strings) to the end of the list.
+even_numbers = [2, 4, 8]
+more_even_numers = [100, 400]
+even_numbers.extend(more_even_numers)
+
+```
+
+### Loop two variables simultaneously  in a for loop
+```
+for i, j in zip(range(x), range(y)):
+```
+
 ### Dictionary: 
 Unordered key-value pair. The functionality of both dictionaries and defaultdict are almost same except for the fact that defaultdict never raises a KeyError. It provides a default value for the key that does not exists (each key has the same default value). e.g. defaultdict(int) returns a dictionary with all default value 0.
 #### Some methods:
@@ -117,6 +153,18 @@ dict(sorted(people.items()))
 # Sort by value
 dict(sorted(people.items(), key=lambda item: item[1]))   # people.items() is a list of (key, value) pairs
 # {2: 'Jack', 4: 'Jane', 1: 'Jill', 3: 'Jim'}
+```
+
+#### defaultdict()
+```
+from collections import defaultdict
+dict = defaultdict(callable)
+
+# the parameter must be a callable: int or self-defined function, e.g.:
+def return_true:
+    return True
+dict = defaultdict(return_true)
+
 ```
 
 ### Set:
