@@ -2,7 +2,47 @@ Some Leetcode Notes
 
 ## Categories
 
-### DFS/BFS:
+### BFS:
+问题的本质就是让你在一幅「图」中找到从起点 start 到终点 target 的最近距离
+
+形象点说，DFS 是线，BFS 是面；DFS 是单打独斗，BFS 是集体行动
+
+BFS 可以找到最短距离，但是空间复杂度高，而 DFS 的空间复杂度较低
+
+由此观之，BFS 还是有代价的，一般来说在找最短路径的时候使用 BFS，其他时候还是 DFS 使用得多一些
+
+大致思路：
+```
+// 计算从起点 start 到终点 target 的最近距离
+int BFS(Node start, Node target) {
+    Queue<Node> q; // 核心数据结构
+    Set<Node> visited; // 避免走回头路
+    
+    q.offer(start); // 将起点加入队列
+    visited.add(start);
+    int step = 0; // 记录扩散的步数
+
+    while (q not empty) {
+        int sz = q.size();
+        /* 将当前队列中的所有节点向四周扩散 */
+        for (int i = 0; i < sz; i++) {
+            Node cur = q.poll();
+            /* 划重点：这里判断是否到达终点 */
+            if (cur is target)
+                return step;
+            /* 将 cur 的相邻节点加入队列 */
+            for (Node x : cur.adj()) {
+                if (x not in visited) {
+                    q.offer(x);
+                    visited.add(x);
+                }
+            }
+        }
+        /* 划重点：更新步数在这里 */
+        step++;
+    }
+}
+```
 
 ### DP:
 
@@ -107,6 +147,7 @@ even_numbers = [2, 4, 8]
 more_even_numers = [100, 400]
 even_numbers.extend(more_even_numers)
 
+# list.pop(idx): if idx is not given, the last element will be popped
 ```
 
 ### Loop two variables simultaneously  in a for loop
