@@ -154,6 +154,28 @@ even_numbers.extend(more_even_numers)
 ```
 for i, j in zip(range(x), range(y)):
 ```
+### Deque
+Deque (Doubly Ended Queue) in Python is implemented using the module “collections“. Deque is preferred over a list in the cases where we need quicker append and pop operations from both the ends of the container, as deque provides an O(1) time complexity for append and pop operations as compared to a list that provides O(n) time complexity.
+```
+from collections import deque 
+      
+# Declaring deque 
+de = deque(['name','age','DOB'])  
+de.append(4)
+de.appendleft(6)
+de.pop()
+de.popleft()
+
+# using insert() to insert the value 3 at 5th position
+de.insert(4,3)
+
+# using count() to count the occurrences of 3
+print ("The count of 3 in deque is : ")
+print (de.count(3))
+
+# using remove() to remove the first occurrence of 3
+de.remove(3)
+```
 
 ### Dictionary: 
 Unordered key-value pair. The functionality of both dictionaries and defaultdict are almost same except for the fact that defaultdict never raises a KeyError. It provides a default value for the key that does not exists (each key has the same default value). e.g. defaultdict(int) returns a dictionary with all default value 0.
