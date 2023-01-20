@@ -48,6 +48,58 @@ int BFS(Node start, Node target) {
 
 双向 BFS 是要比传统 BFS 高效的：
 ![double directed BFS vs BFS](https://github.com/XinyuKang/Leetcode/blob/main/double-bfs.jpg)
+
+不过，双向 BFS 也有局限，因为你必须知道终点在哪里
+
+大致思路（以Leetcode 752为例）：
+```
+int openLock(String[] deadends, String target) {
+    Set<String> deads = new HashSet<>();
+    for (String s : deadends) deads.add(s);
+    // 用集合不用队列，可以快速判断元素是否存在
+    Set<String> q1 = new HashSet<>();
+    Set<String> q2 = new HashSet<>();
+    Set<String> visited = new HashSet<>();
+    
+    int step = 0;
+    q1.add("0000");
+    q2.add(target);
+    
+    while (!q1.isEmpty() && !q2.isEmpty()) {
+        // 哈希集合在遍历的过程中不能修改，用 temp 存储扩散结果
+        Set<String> temp = new HashSet<>();
+
+        /* 将 q1 中的所有节点向周围扩散 */
+        for (String cur : q1) {
+            /* 判断是否到达终点 */
+            if (deads.contains(cur))
+                continue;
+            if (q2.contains(cur))
+                return step;
+            
+            visited.add(cur);
+
+            /* 将一个节点的未遍历相邻节点加入集合 */
+            for (int j = 0; j < 4; j++) {
+                String up = plusOne(cur, j);
+                if (!visited.contains(up))
+                    temp.add(up);
+                String down = minusOne(cur, j);
+                if (!visited.contains(down))
+                    temp.add(down);
+            }
+        }
+        /* 在这里增加步数 */
+        step++;
+        // temp 相当于 q1
+        // 这里交换 q1 q2，下一轮 while 就是扩散 q2
+        q1 = q2;
+        q2 = temp;
+    }
+    return -1;
+}
+```
+
 ### DP:
 
 ### Recursion:
@@ -160,6 +212,37 @@ list2 = ['cat', 'bat', 'mat', 'cat', 'pet']
  
 # Will print the index of 'bat' in list2
 print(list2.index('bat'))
+```
+
+#### list + list is a new list
+```
+thislist = ["apple", "banana", "cherry"]
+print(thislist + ["hello"])    # ['apple', 'banana', 'cherry', 'hello']
+```
+
+#### Flatten a list using sum()
+sum(iterable, start)  
+
+iterable : iterable can be anything list , tuples or dictionaries ,
+ but most importantly it should be numbers.
+ 
+start : this start is added to the sum of 
+numbers in the iterable. 
+If start is not given in the syntax , it is assumed to be 0.
+
+```
+ini_list = [[1, 2, 3],
+            [3, 6, 7],
+            [7, 5, 4]]
+ 
+# printing initial list
+print ("initial list ", str(ini_list))
+ 
+# converting 2d list into 1d
+flatten_list = sum(ini_list, [])
+ 
+# printing flatten_list
+print ("final_result", str(flatten_list))  # [1, 2, 3, 3, 6, 7, 7, 5, 4]
 ```
 
 ### Loop two variables simultaneously  in a for loop
@@ -291,6 +374,36 @@ count = len(set(str))
 # Method 2
 from collections import Counter
 count = len(Counter(str))
+```
+
+#### join()
+join() is an inbuilt string function in Python used to join elements of the sequence separated by a string separator. This function joins elements of a sequence and makes it a string. 
+```
+# elements in tuples
+list1 = ('1', '2', '3', '4')
+ 
+# put any character to join
+s = "-"
+ 
+# joins elements of list1 by '-'
+# and stores in string s
+s = s.join(list1)  # 1-2-3-4
+```
+
+#### Get the position of a character in Python using rfind()
+Python String str.rfind(sub, start, end) method returns the rightmost index of the substring if found in the given string. If not found then it returns -1.
+```
+string = 'Geeks'
+letter = 'k'
+print(string.rfind(letter))   # 3
+```
+
+#### Swapping chars in string
+```
+def swap(s, i, j):
+    lst = list(s)
+    lst[i], lst[j] = lst[j], lst[i]
+    return ''.join(lst)
 ```
 
 ### Check Whether a Number is Even or Odd:
