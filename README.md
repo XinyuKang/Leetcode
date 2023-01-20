@@ -43,7 +43,11 @@ int BFS(Node start, Node target) {
     }
 }
 ```
+#### 双向BFS
+传统的 BFS 框架就是从起点开始向四周扩散，遇到终点时停止；而双向 BFS 则是从起点和终点同时开始扩散，当两边有交集的时候停止
 
+双向 BFS 是要比传统 BFS 高效的：
+![double directed BFS vs BFS](https://github.com/XinyuKang/Leetcode/double-bfs.jpg)
 ### DP:
 
 ### Recursion:
