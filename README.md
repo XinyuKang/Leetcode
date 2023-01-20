@@ -149,6 +149,14 @@ even_numbers.extend(more_even_numers)
 
 # list.pop(idx): if idx is not given, the last element will be popped
 ```
+#### Find the index of a number in a list:
+```
+# list of items
+list2 = ['cat', 'bat', 'mat', 'cat', 'pet']
+ 
+# Will print the index of 'bat' in list2
+print(list2.index('bat'))
+```
 
 ### Loop two variables simultaneously  in a for loop
 ```
