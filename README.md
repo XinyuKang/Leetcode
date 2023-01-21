@@ -147,6 +147,7 @@ void slidingWindow(string s) {
 ### Backtracking:
 [Backtracing Algorithm Explanation](https://en.wikipedia.org/wiki/Backtracking)
 
+对于递归相关的算法，时间复杂度这样计算（递归次数）*（递归函数本身的时间复杂度）
 
 大致思路：
 ```
