@@ -179,6 +179,22 @@ def backtrack(路径, 选择列表):
         撤销选择
 # 回溯算法和 DFS 算法的细微差别是：回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」
 ```
+### Task Scheduling:
+问题：n项任务，有加工时间t1,t2,...tn, 只有一台机器
+目标：所有task的总用时之和最短
+解法：按用时从小到大排
+
+问题：n项任务，有加工时间t1,t2,...tn, 有截止时间d1,d2,...dn, 同样只有一台机器
+目标：单项任务最大延迟达到最小（最大延迟定义为超出截止时间的长度）
+解法：按截止时间从前到后排
+
+问题：n项任务，有开始时间结束时间和overlaps，只有一台机器
+目标：完成最多的tasks
+解法：按结束时间从前到后加入被选集
+
+问题：n项任务，有开始时间结束时间和overlaps，有多个processors
+目标：使用最少数量的processors完成所有任务
+解法：按开始时间从前到后加入processor中，若有冲突，create a new processor
 
 ### Others:
 
@@ -421,6 +437,13 @@ def swap(s, i, j):
     lst = list(s)
     lst[i], lst[j] = lst[j], lst[i]
     return ''.join(lst)
+```
+
+#### Check if a string is palindromic:
+```
+# function which return reverse of a string
+def isPalindrome(s):
+    return s == s[::-1]
 ```
 
 ### Check Whether a Number is Even or Odd:
