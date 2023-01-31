@@ -179,22 +179,49 @@ def backtrack(路径, 选择列表):
         撤销选择
 # 回溯算法和 DFS 算法的细微差别是：回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」
 ```
+回溯算法秒杀所有排列-组合-子集问题:
+
+形式一、元素无重不可复选，即 nums 中的元素都是唯一的，每个元素最多只能被使用一次，这也是最基本的形式。
+
+形式二、元素可重不可复选，即 nums 中的元素可以存在重复，每个元素最多只能被使用一次。
+
+形式三、元素无重可复选，即 nums 中的元素都是唯一的，每个元素可以被使用若干次。
+
+上面用组合问题举的例子，但排列、组合、子集问题都可以有这三种基本形式，所以共有 9 种变化。
+
+记住这两种树形结构就能解决所有相关问题:
+
+![backtracking tree 1](https://github.com/XinyuKang/Leetcode/blob/main/backtracking1.jpg)
+![backtracking tree 2](https://github.com/XinyuKang/Leetcode/blob/main/backtracking2.jpg)
 ### Task Scheduling:
 问题：n项任务，有加工时间t1,t2,...tn, 只有一台机器
+
 目标：所有task的总用时之和最短
+
 解法：按用时从小到大排
 
+
 问题：n项任务，有加工时间t1,t2,...tn, 有截止时间d1,d2,...dn, 同样只有一台机器
+
 目标：单项任务最大延迟达到最小（最大延迟定义为超出截止时间的长度）
+
 解法：按截止时间从前到后排
 
+
 问题：n项任务，有开始时间结束时间和overlaps，只有一台机器
+
 目标：完成最多的tasks
+
 解法：按结束时间从前到后加入被选集
 
+
 问题：n项任务，有开始时间结束时间和overlaps，有多个processors
+
 目标：使用最少数量的processors完成所有任务
+
 解法：按开始时间从前到后加入processor中，若有冲突，create a new processor
+
+
 
 ### Others:
 
