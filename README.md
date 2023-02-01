@@ -492,3 +492,42 @@ for digit in str(n):
     sum += int(digit)      
 return sum
 ```
+### Priority Queue in Python
+Python uses a binary heap to implement priority queue
+```
+from queue import PriorityQueue
+
+q = PriorityQueue()
+
+q.put(4)
+q.put(2)
+q.put(5)
+q.put(1)
+q.put(3)
+
+# OR
+# q.put((4, 'Read'))  # every task can be associated with a priority
+# q.put((2, 'Play'))
+# q.put((5, 'Write'))
+# q.put((1, 'Code'))
+# q.put((3, 'Study'))
+
+while not q.empty():
+    next_item = q.get()
+    print(next_item)
+    
+    
+# remove and return 
+# lowest priority item
+print(q.get())
+print(q.get())
+  
+# check queue size
+print('Items in queue :', q.qsize())
+  
+# check if queue is empty
+print('Is queue empty :', q.empty())
+  
+# check if queue is full
+print('Is queue full :', q.full())
+```
